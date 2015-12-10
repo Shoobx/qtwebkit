@@ -187,8 +187,9 @@ void FileInputType::handleDOMActivateEvent(Event* event)
     if (element()->isDisabledFormControl())
         return;
 
-    if (!ScriptController::processingUserGesture())
-        return;
+    // commented out, freezes file upload: https://github.com/ariya/phantomjs/issues/12506
+    // if (!ScriptController::processingUserGesture())
+    //     return;
 
     if (Chrome* chrome = this->chrome()) {
         FileChooserSettings settings;
